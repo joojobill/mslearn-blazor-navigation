@@ -1,6 +1,12 @@
 using BlazingPizza;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Set default culture to Ghana (GHS currency)
+var ghanaCulture = new CultureInfo("en-GH");
+CultureInfo.DefaultThreadCurrentCulture = ghanaCulture;
+CultureInfo.DefaultThreadCurrentUICulture = ghanaCulture;
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
