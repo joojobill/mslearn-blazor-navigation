@@ -3,8 +3,9 @@ using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Set default culture to Ghana (GHS currency)
-var ghanaCulture = new CultureInfo("en-GH");
+// Set default culture to Ghana (Ghana cedi)
+var ghanaCulture = (CultureInfo)CultureInfo.GetCultureInfo("en-GH").Clone();
+ghanaCulture.NumberFormat.CurrencySymbol = "GH₵";
 CultureInfo.DefaultThreadCurrentCulture = ghanaCulture;
 CultureInfo.DefaultThreadCurrentUICulture = ghanaCulture;
 
